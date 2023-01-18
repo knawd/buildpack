@@ -1,6 +1,6 @@
 # buildpack
 
-Currently work in progress as we are testing the end to end UX but this project should build and the sample application.
+Currently work in progress as we are testing the end to end UX but this project should build and make the sample application.
 The deployment aspects are currently being investigated.
 
 ## package rust builder
