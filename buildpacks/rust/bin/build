@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+echo "---> Rust Wasm Buildpack"
+
+# 1. GET ARGS
+layersdir=$1
+
+# 2. BUILD WASM BINARY
+rustup default stable
+rustup target add wasm32-wasi
+cargo build --target wasm32-wasi --release
+
+# 3. MAKE SURE ONLY ONE BIN GENERATED
+bincount=$(ls target/wasm32-wasi/release/*.wasm | wc -l)
+
+if [ "$bincount" == "1" ]; then
+    # 4. COPY WASM TO RUN LAYER
+    binary_location=$(ls target/wasm32-wasi/release/*wasm)
+    file_name=$(basename -- $binary_location)
+    echo "copying $binary_location to $layersdir"
+    cp $binary_location $layersdir
+else
+    # 5. FAIL IF THERES TOO MANY FILES
+    echo "There is more than one .wasm file"
+    ls target/wasm32-wasi/release/*.wasm
+    exit 1
+fi
+
+# ========== ADDED ===========
+# 6. SET DEFAULT START COMMAND
+
+cat > "$layersdir/launch.toml" << EOL
+[[processes]]
+type = "sys-info"
+command = "/$file_name"
+EOL

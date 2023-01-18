@@ -1,0 +1,17 @@
+# Buildpacks to include in builder
+[[buildpacks]]
+id = "knawd/rust"
+version = "0.0.1"
+uri = "../../buildpacks/rust"
+
+[[order]]
+    [[order.group]]
+    id = "knawd/rust"
+    version = "0.0.1"
+
+# Stack that will be used by the builder
+[stack]
+id = "dev.knawd.stacks.rust"
+#base-image = "quay.io/knawd/stack:rust"
+run-image = "quay.io/knawd/stack:rust"
+build-image = "quay.io/knawd/stack:rust"

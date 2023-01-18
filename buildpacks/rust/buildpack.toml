@@ -1,0 +1,8 @@
+api = "0.2"
+
+[buildpack]
+  id = "knawd/rust"
+  version = "0.0.1"
+
+[[stacks]]
+  id = "dev.knawd.stacks.rust"
