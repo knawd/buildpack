@@ -12,6 +12,5 @@ uri = "../../buildpacks/rust"
 # Stack that will be used by the builder
 [stack]
 id = "dev.knawd.stacks.rust"
-#base-image = "quay.io/knawd/stack:rust"
-run-image = "quay.io/knawd/stack:rust"
+run-image = "quay.io/knawd/scratch"
 build-image = "quay.io/knawd/stack:rust"

@@ -1,0 +1,22 @@
+apiVersion: serving.knative.dev/v1
+kind: Pod
+metadata:
+  name: helloworld-rust-wasi
+  namespace: default
+  annotations:
+    module.wasm.image/variant: compat-smart
+spec:
+  template:
+    metadata:
+    spec:
+      hostNetwork: true
+      timeoutSeconds: 1
+      containers:
+      - name: http-server
+        image: helloworld-rust-wasi
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        env:
+          - name: TARGET
+            value: "Rust Sample v1"

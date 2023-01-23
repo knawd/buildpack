@@ -26,6 +26,7 @@ async fn main() {
 
     let make_svc = make_service_fn(|_| async move {
         Ok::<_, Infallible>(service_fn(move |_: Request<Body>| async move {
+            println!("Setting up service on {:?} : {:?}", addr, port);
             let mut hello = "Hello ".to_string();
             match env::var("TARGET") {
                 Ok(target) => {
