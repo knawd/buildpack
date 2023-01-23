@@ -12,4 +12,3 @@ anyhow = "1.0"
 hyper_wasi = { version = "0.15", features = ["full"] }
 tokio_wasi = { version = "1", features = ["io-util", "fs", "net", "time", "rt", "macros"] }
 pretty_env_logger = "0.4.0"
-

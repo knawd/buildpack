@@ -27,3 +27,14 @@ podman push quay.io/knawd/stack:rust
 ```
 pack build helloworld-rust-wasi --path ./apps/rust/helloworld-rust-wasi --buildpack ./buildpacks/rust --builder  quay.io/knawd/builder:rust --docker-host=inherit -v --trust-builder
 ```
+
+## run
+
+```
+podman run --rm --annotation module.wasm.image/variant=compat-smart -p 8080:8080 --entrypoint /layers/knawd_rust/wasi/hellorust.wasm helloworld-rust-wasi
+```
+
+## test
+```
+curl localhost:8080
+```
