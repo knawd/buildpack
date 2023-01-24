@@ -1,3 +1,10 @@
+# knawd buildpack
+
+This repository is currently under active development.
+
+The steps below work but there are a number of issues that need to be resolved before this becomes a usable workflow.
+See https://github.com/knative/func/discussions/1489#discussioncomment-4761544 for a description of the issues.
+
 # buildpack
 
 Currently work in progress as we are testing the end to end UX but this project should build and make the sample application.
@@ -37,4 +44,11 @@ podman run --rm --annotation module.wasm.image/variant=compat-smart -p 8080:8080
 ## test
 ```
 curl localhost:8080
+```
+
+## kn func flow
+
+```
+pack config trusted-builders add knawd/rust
+
 ```

@@ -4,6 +4,7 @@ FROM registry.access.redhat.com/ubi8/ubi as base
 ENV CNB_USER_ID=1000
 ENV CNB_GROUP_ID=1000
 ENV CNB_STACK_ID="dev.knawd.stacks.rust"
+
 LABEL io.buildpacks.stack.id="dev.knawd.stacks.rust"
 
 RUN yum install -y gcc openssl-devel && \

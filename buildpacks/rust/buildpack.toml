@@ -1,8 +1,20 @@
-api = "0.2"
+api = "0.9"
 
 [buildpack]
   id = "knawd/rust"
-  version = "0.0.1"
+  version = "0.0.3"
+  description = "A Cloud Native Buildpack with an order definition suitable for Rust WASI"
+  homepage = "https://github.com/knawd/buildpack"
+  keywords = ["rust", "composite", "webassembly", "wasm"]
+  name = "Rust WASI Build Pack"
+
+  [[buildpack.licenses]]
+    type = "Apache-2.0"
+    uri = "https://github.com/knawd/buildpack/blob/main/LICENSE"
+
+[metadata]
+  include-files = ["LICENSE", "README.md", "buildpack.toml"]
+
 
 [[stacks]]
   id = "dev.knawd.stacks.rust"

@@ -1,4 +1,4 @@
-#! /bin/sh 
+#! /bin/sh
 
 ## build stack
 
@@ -12,12 +12,10 @@ podman push quay.io/knawd/stack:rust
 pack builder create quay.io/knawd/builder:rust --config ./builders/rust/builder.toml
 podman push quay.io/knawd/builder:rust
 
-pack buildpack package knawd-rust --config ./buildpacks/rust/package.toml
+pack buildpack package knawd/rust --config ./buildpacks/rust/package.toml
+podman push docker.io/knawd/rust
 
 
 ## build app
 
 pack build helloworld-rust-wasi --path ./apps/rust/helloworld-rust-wasi --buildpack ./buildpacks/rust --builder  quay.io/knawd/builder:rust --docker-host=inherit -v --trust-builder
-
-
-

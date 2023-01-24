@@ -1,13 +1,13 @@
 # Buildpacks to include in builder
 [[buildpacks]]
 id = "knawd/rust"
-version = "0.0.1"
+version = "0.0.3"
 uri = "../../buildpacks/rust"
 
 [[order]]
     [[order.group]]
     id = "knawd/rust"
-    version = "0.0.1"
+    version = "0.0.3"
 
 # Stack that will be used by the builder
 [stack]
